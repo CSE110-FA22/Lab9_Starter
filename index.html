@@ -2,107 +2,61 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 9</title>
-
-  <style>
-    button {
-      margin: 3px;
-    }
-
-    button:hover {
-      cursor: pointer;
-    }
-
-    #first-num,
-    #second-num {
-      width: 60px;
-    }
-
-    output {
-      border: 1px solid gray;
-      display: block;
-      height: 18px;
-      margin-top: 5px;
-      padding: 5px;
-      width: 240px;
-    }
-
-    main {
-      width: 800px;
-    }
-
-    #error-btns {
-      column-gap: 5px;
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      row-gap: 5px;
-    }
-
-    #error-btns>* {
-      padding: 8px 2px;
-      width: 122px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" , href="style.css">
+    <script src="./errorhandling.js" type="module"></script>
+    <title>Lab 9</title>
 </head>
 
 <body>
-  <main>
-    <form>
-      <fieldset>
-        <legend>Error Calculator</legend>
-        <input name="first-num" id="first-num" />
-        <select name="operator" id="operator">
+    <main>
+        <form>
+            <fieldset>
+                <legend>Error Calculator</legend>
+                <input name="first-num" id="first-num" />
+                <select name="operator" id="operator">
           <option>+</option>
           <option>-</option>
           <option>*</option>
           <option>/</option>
         </select>
-        <input name="second-num" id="second-num" />
-        <button id="calculate">Calculate</button>
-        <br />
-        <output></output>
-      </fieldset>
-    </form>
+                <input name="second-num" id="second-num" />
+                <button id="calculate">Calculate</button>
+                <br />
+                <output></output>
+            </fieldset>
+        </form>
 
-    <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
-    </section>
-  </main>
+        <section id="error-btns">
+            <button>Console Log</button>
+            <button>Console Error</button>
+            <button>Console Count</button>
+            <button>Console Warn</button>
+            <button>Console Assert</button>
+            <button>Console Clear</button>
+            <button>Console Dir</button>
+            <button>Console dirxml</button>
+            <button>Console Group Start</button>
+            <button>Console Group End</button>
+            <button>Console Table</button>
+            <button>Start Timer</button>
+            <button>End Timer</button>
+            <button>Console Trace</button>
+            <button>Trigger a Global Error</button>
+        </section>
+    </main>
 
-  <script>
-    let form = document.querySelector('form');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
-    });
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+        window.TrackJS && TrackJS.install({
+            token: "9d9ca5007be440c5b7059d4765afa41d"
+                // for more configuration options, see https://docs.trackjs.com
+        });
+    </script>
 
-    let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
-    // Start your code here
-    // You may move this JS to another file if you wish
-  </script>
 </body>
 
 </html>
