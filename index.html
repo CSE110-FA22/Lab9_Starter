@@ -69,7 +69,7 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
+      <button>Console Log</button> 
       <button>Console Error</button>
       <button>Console Count</button>
       <button>Console Warn</button>
@@ -100,8 +100,72 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
-    // Start your code here
-    // You may move this JS to another file if you wish
+    // testing try catch 
+    try {
+      errorBtns.addEventListener('click', () => {
+        console.log('errorBtns was clicked');
+      }) 
+    } catch (err) {
+        throw new SyntaxError('errorBtns is an array');
+    } finally {
+        console.log('finished testing errorBtns array')
+    }
+
+    // go through every button in errorBtns array and add its corresponding 
+    // console testing 
+    for (let i=0; i<errorBtns.length; i++) {
+      errorBtns[i].addEventListener('click', () => {
+        switch (i) {
+          case 0: 
+            console.log('console log demo');
+            break;
+          case 1: 
+            console.error('console error demo');
+            break;
+          case 2: 
+            console.count('count button');
+            break;
+          case 3:
+            console.warn('console warn demo');
+            break;
+          case 4: 
+            console.assert(true, 'true assertion'); 
+            console.assert(false, 'false assertion');
+            break; 
+          case 5: 
+            console.clear('console clear demo');
+            break; 
+          case 6: 
+            console.dir('console dir demo');
+            break; 
+          case 7: 
+            console.dirxml('console dirxml demo');
+            break; 
+          case 8: 
+            console.group('console group start'); 
+            break; 
+          case 9:
+            console.groupCollapsed('console group end');
+            break; 
+          case 10: 
+            console.table(['demo 1', 'demo 2', 'demo 3']);
+            break; 
+          case 11: 
+            console.time();
+            break; 
+          case 12: 
+            console.timeEnd();
+            break; 
+          case 13: 
+            console.trace();
+            break; 
+          case 14: 
+            foo.substring(undefinedVar);
+            break;
+        }
+      })
+    }
+
   </script>
 </body>
 
