@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "e0c99ec21c7049538acab79f45111e56"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,6 +110,108 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    errorBtns[0].addEventListener('click', () => {
+      console.log('Console Log');
+    });
+
+    errorBtns[1].addEventListener('click', () => {
+      console.error('Console Error');
+    });
+
+    errorBtns[2].addEventListener('click', () => {
+      console.count('Console Count');
+    });
+
+    errorBtns[3].addEventListener('click', () => {
+      console.warn('Console Warn');
+    });
+
+    errorBtns[4].addEventListener('click', () => {
+      let x = 5;
+      let y = 10;
+      const reply = 'y is greater than x'
+      console.assert(y > x, {x, y, reply})
+    });
+
+    errorBtns[5].onClick = () => {
+      console.clear();
+    };
+
+    errorBtns[6].addEventListener('click', () => {
+      console.dir(errorBtns);
+    });
+
+    errorBtns[7].onClick = function() {
+      console.dirxml(errorBtns[7])
+    }
+
+    errorBtns[8].onClick() = function(){
+      console.group("console.group")
+    }
+
+    errorBtns[9].onClick() = function(){
+      console.groupEnd("console.group")
+    }
+
+    errorBtns[10].onclick = function () {
+        console.table([
+          {
+            name: "Software Engineering",
+            num: "110",
+          },
+          {
+            name: "Programming Languages: Principles and Paradigms",
+            num: "130",
+          },
+          {
+            name: "Computer Security",
+            num: "127",
+          },
+        ]);
+      };
+
+      errorBtns[11].onclick = function () {
+        console.time();
+      };
+
+      errorBtns[12].onclick = function () {
+        console.timeEnd();
+      };
+
+      errorBtns[13].onclick = function () {
+        console.trace();
+      };
+
+      errorBtns[14].onclick = function () {
+        throw new Error("Trigger a Global Error");
+      };
+
+      try {
+        let obj = document.querySelector('p').value;
+        console.log(obj);
+    } catch (err){
+        console.error(err);
+    } finally {
+        console.log("Last step of the try catch block");
+    } 
+
+    class CustomError extends Error{
+      constructor(message){
+        super(message); 
+        this.name = 'CustomError';
+      }
+    }
+
+    try {
+      throw new CustomError('This is a custom error');
+    } catch (err){
+      console.error(err);
+    } finally {
+      console.log("Last step of the try catch block");
+    }
+
+
   </script>
 </body>
 
